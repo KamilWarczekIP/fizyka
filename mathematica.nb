@@ -1,2 +1,6 @@
 Off[Solve::incnst];
 wylacz rozwiazzaywanie symboliczne rownan
+
+A[k_,\[Mu]_]:=NDSolve[{m*\[PartialD]^2x[t]/\[PartialD]t^2==-k*(\[PartialD]x[t]/\[PartialD]t)^2-\[Mu]*m*g*UnitStep[\[PartialD]x[t]/\[PartialD]t],\[PartialD]x[t]/\[PartialD]t==25/.t->0,x[0]==0},x,{t,0,10}]
+mozemy w dowolnym momencie podstawic za k_ i za [Mu]_
+
