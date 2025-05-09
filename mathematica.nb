@@ -1,3 +1,6 @@
+ClearAll["Global`*"]
+
+
 Off[Solve::incnst];
 wylacz rozwiazzaywanie symboliczne rownan
 
