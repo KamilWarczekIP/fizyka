@@ -10,3 +10,6 @@ mozemy w dowolnym momencie podstawic za k_ i za [Mu]_
 NDSolve - rozwiaz numerycznie
 UnitStep - krok rozwiazania
 
+r1=Solve[J==1/2*\[Rho]*vf*A^2*\[Omega]^2,A]
+Wzór na amplitudę w dozie
+
