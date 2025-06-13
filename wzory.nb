@@ -1,3 +1,20 @@
+(*Stale*)
+g = 10 (*przypsieszenia ziemskie 9,88*)
+c = 299792458 (*predkosc swiatla w prozni*)
+e = 1.6 * 10^(-19) (*ladunek elektryczny elektronu (elementarny) *)
+miZero = 4 * Pi * 10 ^ (-7) (*stala magnetyczna*)
+epsZero = 8.854187 * 10 ^ (-12) (*stala elektryczna*)
+G = 6.674 * 10 ^ (-11) (*stala grawitacyjna*)
+h = 6.626 * 10 ^ (-34) (* stala Plancka w [J * s] *)
+
+
+(*Ruch*)
+EnergiaKinetyczna = Masa * Predkosc^2 / 2
+EnergiaPotencjalna = Masa * g * Wysokosc
+
+
+
+
 Praca = energi rozciagania
 W = E_r = k*roznicza_dlogsci^2 / 2
 k = Em*S*l
@@ -5,3 +22,4 @@ k-wspolczynnik sprezystosci
 l - dlugosc
 Em - modul younga
 S - przekroj (powierzchnia)
+
