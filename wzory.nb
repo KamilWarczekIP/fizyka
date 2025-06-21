@@ -59,7 +59,9 @@ MomentBezwladnosciPretu = (1 / 12) * Masa * Dlugosc ^ 2 + ( 1 / 4 ) * Masa * Sre
 
 MomentPedu = MomentBezwladnosci * PredkoscKatowa
 PredkoscKatowa = ZmianaKata / Czas
+PredkoscKatowa = 2 * Pi * Czestotliwosc
 PredkoscLiniowa = Droga / Czas
+PredkoscLiniowa = PredkoscKatowa * PromienOkreguPoruszania
 PrzyspieszenieKatowe = PredkoscKatowa / Czas
 SilaCoriolisa =  - 2 * Masa * ( Cross[PredkoscKatowa, PredkoscLiniowa]) 
 PredkoscKatowaPrecesji = ( Masa * g * OdlegloszPodparciaOdSrodkaMasy ) / ( MomentBezwladnosci * PredkoscKatowa )
