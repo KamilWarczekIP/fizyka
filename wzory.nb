@@ -28,6 +28,11 @@ Efekt żyroskopowy
 Praca = Energia
 
 Krzywe Lissajous
+
+Rownania Maxwella
+din E = P / epsZero
+div B = 0
+rot E =
 *)
 (*Ruch obrotowy*)
 EnergiaKinetyczna = 
@@ -81,23 +86,20 @@ CzestoscRezonansowa
   PredkoscGrupwa
   NatezenieFali = MocSrednia / PowierchniaCzolaFali
   NatezenieFali = MocSrednia / 4 * Pi * Promien ^ 2 (*Dla fali kulistej*)
-(*Optyka*)
+
+  
+(*Optyka i akustyka*)
 NatezenieSwiatlaZaPolaryzatorem = NatezenieSwiatlaPrzedPolaryzatorem * Cos[ Kat ](*PRAWO MALUSA*)
   (*Kat padania = Kat odbicia*)
- Sin[KatPadania] / Sin[KatPoPrzejsciu] == PredkoscWOsrodkuPierwszym / PredkoscWOsrodkuDrugim (*PRAWO SNELLIUSA*)
+Sin[KatPadania] / Sin[KatPoPrzejsciu] == PredkoscWOsrodkuPierwszym / PredkoscWOsrodkuDrugim (*PRAWO SNELLIUSA*)
 Glosnosc = 10 Log10[NatezenieDzwieku / ProgSlyszalnosci](*PRAWO WEBERA-FECHNERA*)
 (*Elekrodynamika*)
+SilaElektrostatyczna = ( 1 / ( 4 * Pi * epsZero * WspolczPrzenikElekMaterialu ) ) * ( ( Ladunek1 * Ladunek2) / ( Odleglosc ^ 2 ) )
+Opor = Napiecie / Natezenie
+Natezenie = Ladunek / Czas
 
 (*Atomowe*)
-SilaPrzyciaganiaGrawitacyjnego = 
+SilaPrzyciaganiaGrawitacyjnego = G * Masa1 * Masa2 / ( Odleglosc ^ 2 )
 
-
-Praca = energi rozciagania
-W = E_r = k*roznicza_dlogsci^2 / 2
-k = Em*S*l
-k-wspolczynnik sprezystosci
-l - dlugosc
-Em - modul younga
-S - przekroj (powierzchnia)
 
 
