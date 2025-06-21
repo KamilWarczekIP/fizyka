@@ -38,7 +38,9 @@ Rownania Maxwella
 din E = P / epsZero
 div B = 0
 rot E = - (d B) / (d t)
-rot B = 
+rot B = miZero (J + epsZero * (d E) / (d t) )
+J - gestosc pradu
+
 *)
 
 (*Ruch obrotowy*)
@@ -51,43 +53,45 @@ MomentBezwladnosciKuli = ( 2 / 5 ) * Masa * Promien ^ 2
     (*Srodek walca*)
 MomentBezwladnosciWalca = (1 / 2) * Masa * Promien ^ 2 (*OS Przechodzaca przez podstawe*) 
 MomentBezwladnosciWalca = (1 / 12) * Masa * ( 3 * Promien ^ 2 + Wysokosc ^ 2) (*OS Nie przechodzaca przez podstawe*) 
+   
     (*Srodek pretu*)
-MomentBezwladnosciPretu 
+MomentBezwladnosciPretu = (1 / 12) * Masa * Dlugosc ^ 2 + ( 1 / 4 ) * Masa * Srednica ^ 2
 
 MomentPedu = MomentBezwladnosci * PredkoscKatowa
 PredkoscKatowa = ZmianaKata / Czas
 PredkoscLiniowa = Droga / Czas
 PrzyspieszenieKatowe = PredkoscKatowa / Czas
-SilaCoriolisa = 
-PredkoscPrecesji
+SilaCoriolisa =  - 2 * Masa * ( Cross[PredkoscKatowa, PredkoscLiniowa]) 
+PredkoscKatowaPrecesji = ( Masa * g * OdlegloszPodparciaOdSrodkaMasy ) / ( MomentBezwladnosci * PredkoscKatowa )
 
 MomentBezwladnosciWzglOsi = MomentBezwladnosci + Masa * Odleglosc ^ 2 (*TWIERDZENIE STEINERA*)
 
 (*Opory i tarcie*)
-SilaOporuOsrodka = (*Wzor Newtona*)
-                    (*Wzor Stoeklesa*)
-SilaWyporu
-SilaTarcia
-SilaSprezystosci
-EnergiaSprezystosci
+SilaOporuOsrodka = - Powierzchnia * WspLepkosci * PredkoscLiniowa (*Wzor Newtona*)
+SilaOporuOsrodka = - 6 * Pi * Promien * WspLepkosci * PredkoscLiniowa (*Wzor Stoeklesa - dla kuli*)
+SilaWyporu = - Masa * g
+SilaTarcia = - WspTarcia * SilaNacisku
+SilaSprezystosci = - WspSprezystosci * DlugoscOdksztalcenia (*PRAWO HOOKE'a*)
+EnergiaPotencjalnaSprezystosci = WspSprezystosci * DlugoscOdksztalcenia / 2 
 
 
 (*Drgania*)
-Czestotliwosc
-Okres
-CzestoscKolowa
+Czestotliwosc = 1 / Okres
+Okres = 1 / Czestotliwosc
+Okres = 2 * Pi / CzestoscKolowa
+CzestoscDranWlasnych = Sqrt[ WspSprezystosci / Masa ]
   (*ROWNAIE OSCYLATORA HARMONICZNEGO*)
-  CzestoscDranWlasnych
-OkresDrganWachadlaMetematycznego
-OkresDrganWachadlaFizycznego
-EnegriaCalkowitaOscylatoraHarm
+  
+OkresDrganWachadlaMetematycznego = 2 * PI * Sqrt[ DlugoscLinki / g ]
+OkresDrganWachadlaFizycznego = 2 * Pi * Sqrt[ MomentBezwladnosci / ( Masa * g * OdlegloscSrodkaMasyOdPunktuZaczepienia ) ]
+EnegriaCalkowitaOscylatoraHarm = Amplituda * Masa * PredkoscKatowa ^ 2 / 2
   (*ROWNAIE OSCYLATORA HARMONICZNEGO TŁUMIONEGO*)
-CzestoscDranTlumionych
-ChwilowaAmplitudaDragn
-WspolczynnikTlumienia
+CzestoscDranTlumionych = Sqrt[CzestoscDranWlasnych ^ 2 - WspolczynnikTlumienia ^ 2]
+ChwilowaAmplitudaDragn = AmplitudaPoczatkowa * e ^ (- WspolczynnikTlumienia * Czas) (*e = Liczba Eulera*)
+WspolczynnikTlumienia = WspProporcjonalnosci / 2 * Masa  (* WspProporcjonalnosci -> SilaOporu = -WspProporcjonalnosci * Predkosc *)
   (*ROWNAIE OSCYLATORA HARMONICZNEGO TŁUMIONEGO WYMUSZONEGO*)
-AmplitudaDragnWymuszonych
-CzestoscRezonansowa
+AmplitudaDragnWymuszonych = ( SilaWymuszenia / Masa ) * (1 / Sqrt[(CzestoscDranWlasnych ^ 2 - CzestoscWymuszenia ^ 2) ^ 2 + (2 * WspolczynnikTlumienia * CzestoscWymuszenia) ^ 2])
+CzestoscRezonansowa = Sqrt[CzestoscDranWlasnych ^ 2 - 2 * WspolczynnikTlumienia ^ 2]
 
 
 (*Fale*)
