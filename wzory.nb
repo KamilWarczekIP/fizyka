@@ -6,7 +6,7 @@ miZero = 4 * Pi * 10 ^ (-7) (*stala magnetyczna*)
 epsZero = 8.854187 * 10 ^ (-12) (*stala elektryczna*)
 G = 6.674 * 10 ^ (-11) (*stala grawitacyjna*)
 h = 6.626 * 10 ^ (-34) (* stala Plancka w [J * s] *)
-
+ProgSlyszalnosci = 10 ^ (-12) (*dla ludzkiego ucha przy częstotliwości 1 kHz*)
 
 (*Ruch postępowy*)
 EnergiaKinetyczna = Masa * Predkosc^2 / 2
@@ -79,10 +79,13 @@ CzestoscRezonansowa
   DlugoscFali
   PredkoscFazowa
   PredkoscGrupwa
-
+  NatezenieFali = MocSrednia / PowierchniaCzolaFali
+  NatezenieFali = MocSrednia / 4 * Pi * Promien ^ 2 (*Dla fali kulistej*)
 (*Optyka*)
 NatezenieSwiatlaZaPolaryzatorem = NatezenieSwiatlaPrzedPolaryzatorem * Cos[ Kat ](*PRAWO MALUSA*)
-
+  (*Kat padania = Kat odbicia*)
+ Sin[KatPadania] / Sin[KatPoPrzejsciu] == PredkoscWOsrodkuPierwszym / PredkoscWOsrodkuDrugim (*PRAWO SNELLIUSA*)
+Glosnosc = 10 Log10[NatezenieDzwieku / ProgSlyszalnosci](*PRAWO WEBERA-FECHNERA*)
 (*Elekrodynamika*)
 
 (*Atomowe*)
