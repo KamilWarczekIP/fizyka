@@ -7,6 +7,8 @@ epsZero = 8.854187 * 10 ^ (-12) (*stala elektryczna*)
 G = 6.674 * 10 ^ (-11) (*stala grawitacyjna*)
 h = 6.626 * 10 ^ (-34) (* stala Plancka w [J * s] *)
 ProgSlyszalnosci = 10 ^ (-12) (*dla ludzkiego ucha przy częstotliwości 1 kHz*)
+ro = 5.67 * 10 ^ (-8) (*stała Stefana-Boltzmanna*)
+
 
 (*Ruch postępowy*)
 EnergiaKinetyczna = Masa * Predkosc^2 / 2
@@ -32,7 +34,7 @@ Krzywe Lissajous
 Rownania Maxwella
 din E = P / epsZero
 div B = 0
-rot E =
+rot E = - (d B) / (d t)
 *)
 (*Ruch obrotowy*)
 EnergiaKinetyczna = 
@@ -92,14 +94,25 @@ CzestoscRezonansowa
 NatezenieSwiatlaZaPolaryzatorem = NatezenieSwiatlaPrzedPolaryzatorem * Cos[ Kat ](*PRAWO MALUSA*)
   (*Kat padania = Kat odbicia*)
 Sin[KatPadania] / Sin[KatPoPrzejsciu] == PredkoscWOsrodkuPierwszym / PredkoscWOsrodkuDrugim (*PRAWO SNELLIUSA*)
-Glosnosc = 10 Log10[NatezenieDzwieku / ProgSlyszalnosci](*PRAWO WEBERA-FECHNERA*)
+GlosnoscWdB = 10 Log10[NatezenieDzwieku / ProgSlyszalnosci] (*PRAWO WEBERA-FECHNERA*)
+
+
 (*Elekrodynamika*)
 SilaElektrostatyczna = ( 1 / ( 4 * Pi * epsZero * WspolczPrzenikElekMaterialu ) ) * ( ( Ladunek1 * Ladunek2) / ( Odleglosc ^ 2 ) )
 Opor = Napiecie / Natezenie
 Natezenie = Ladunek / Czas
+SilaElektromagnetycznaLadunku = Ladunek * PredkoscLadunku * WektorIndukcjiMagnetycznej
+SilaElektromagnetycznaPrzewodnika = Natezenie * DlugoscPrzewodnika * WektorIndukcjiMagnetycznej
+PojemnoscKondensatora = epsZero * WspolczPrzenikElekMaterialu * PowierzchniaOkladek / Odlegosc
+NapiecieHalla = 
+
 
 (*Atomowe*)
 SilaPrzyciaganiaGrawitacyjnego = G * Masa1 * Masa2 / ( Odleglosc ^ 2 )
+EnergiaPadajacegoFotonu = Czestotliwosc * h
+EnergiaKinetycznafotoelektronu = e * NapiecieHamowania
+EnergiaPadajacegoFotonu == PracaWyjscia + EnergiaKinetycznafotoelektronu  (*ROWNANIE EINSTEINA - Efekt Fotoelektryczny*)
 
+EmisjaEnergetycznaCialaIdealnieCzarnego = ro * Temperatura ^ 4 (*PRAWO STEFANA-BOLTZMANA*)
 
 
