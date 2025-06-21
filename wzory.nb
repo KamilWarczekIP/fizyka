@@ -8,25 +8,28 @@ G = 6.674 * 10 ^ (-11) (*stala grawitacyjna*)
 h = 6.626 * 10 ^ (-34) (* stala Plancka w [J * s] *)
 ProgSlyszalnosci = 10 ^ (-12) (*dla ludzkiego ucha przy częstotliwości 1 kHz*)
 ro = 5.67 * 10 ^ (-8) (*stała Stefana-Boltzmanna*)
-
+b = 2.8977 * 10 ^ (-3) (*stała Wiena *)
 
 (*Ruch postępowy*)
 EnergiaKinetyczna = Masa * Predkosc^2 / 2
 EnergiaPotencjalna = Masa * g * Wysokosc
-Praca
-Sila
-SilaCiezkozci
-Ped
-PredkoscSrednia
-PrzyspieszenieSrednie
-Moc
+Praca = Sila * Odlglosc
+Sila = Masa * Przyspieszenie
+SilaCiezkozci = Masa * g
+Ped = Masa * Predkosc
+PredkoscSrednia = Odleglosc / Czas
+PrzyspieszenieSrednie = PredkoscSrednia / Czas
+Moc = Praca / Czas
 
 (*Pamiętaj: 
 Zasada zachownia energii i zasada zachownia pedu
 Zasaday dynamiki Newtona:
-1.
-2.
+1. Zasada bezwładności (jeżeli F = 0 ...)
+2. Zasada działania siły (F = ma)
+3. Zasada akcji i reakcji (Jeżeli A działa na B, to B działa na A)
+
 Efekt żyroskopowy
+
 Praca = Energia
 
 Krzywe Lissajous
@@ -35,21 +38,30 @@ Rownania Maxwella
 din E = P / epsZero
 div B = 0
 rot E = - (d B) / (d t)
+rot B = 
 *)
+
 (*Ruch obrotowy*)
-EnergiaKinetyczna = 
-EnergiaPotencjalna = 
-SilaOdrodkowa
-MomentBezwladnosci
+EnergiaKinetyczna = MomentBezwladnosci * PredkoscKatowa ^ 2 / 2
+SilaOdrodkowa = Masa * PredkoscLiniowa ^ 2 / Odleglosc
+MomentBezwladnosci :
+    (*Srodek kuli*)
+MomentBezwladnosciKuli = ( 2 / 5 ) * Masa * Promien ^ 2 
 
+    (*Srodek walca*)
+MomentBezwladnosciWalca = (1 / 2) * Masa * Promien ^ 2 (*OS Przechodzaca przez podstawe*) 
+MomentBezwladnosciWalca = (1 / 12) * Masa * ( 3 * Promien ^ 2 + Wysokosc ^ 2) (*OS Nie przechodzaca przez podstawe*) 
+    (*Srodek pretu*)
+MomentBezwladnosciPretu 
 
-
-MomentPedu
-PredkoscKatowa
-PredkoscLiniowa
-PrzyspieszenieKatowe
-SilaCoriolisa
+MomentPedu = MomentBezwladnosci * PredkoscKatowa
+PredkoscKatowa = ZmianaKata / Czas
+PredkoscLiniowa = Droga / Czas
+PrzyspieszenieKatowe = PredkoscKatowa / Czas
+SilaCoriolisa = 
 PredkoscPrecesji
+
+MomentBezwladnosciWzglOsi = MomentBezwladnosci + Masa * Odleglosc ^ 2 (*TWIERDZENIE STEINERA*)
 
 (*Opory i tarcie*)
 SilaOporuOsrodka = (*Wzor Newtona*)
@@ -79,13 +91,13 @@ CzestoscRezonansowa
 
 
 (*Fale*)
-  (*ROWNAIE FALOWE*)
-  LiczbaFalowa
-  CzestoscKolowa
-  Okres
-  DlugoscFali
-  PredkoscFazowa
-  PredkoscGrupwa
+  x = Amplituda * Sin[CzestoscKolowa * Czas + LiczbaFalowa * PolozenieWzgldemX + PrzesuniecieFazowe] (*ROWNAIE FALOWE*)
+  LiczbaFalowa = 2 * Pi / DlugoscFali
+  CzestoscKolowa = 2 * Pi * Czestotliwosc
+  Okres = 1 / Czestotliwosc
+  DlugoscFali = PredkoscFazowa * Okres
+  PredkoscFazowa = CzestoscKolowa / LiczbaFalowa
+  PredkoscGrupowa = CzestoscKolowa / LiczbaFalowa = Czestotliwosc * DlugoscFali
   NatezenieFali = MocSrednia / PowierchniaCzolaFali
   NatezenieFali = MocSrednia / 4 * Pi * Promien ^ 2 (*Dla fali kulistej*)
 
@@ -114,5 +126,8 @@ EnergiaKinetycznafotoelektronu = e * NapiecieHamowania
 EnergiaPadajacegoFotonu == PracaWyjscia + EnergiaKinetycznafotoelektronu  (*ROWNANIE EINSTEINA - Efekt Fotoelektryczny*)
 
 EmisjaEnergetycznaCialaIdealnieCzarnego = ro * Temperatura ^ 4 (*PRAWO STEFANA-BOLTZMANA*)
+DlugoscFaliOMaxMocy = b / Temperatura (*PRAWO WIENA*)
 
-
+PromienOrbityStacjonarnej = NumerOrbity ^ 2 * h ^ 2 * epsZero / ( Pi * Masa * e ^ 2 )
+EnergiaOrbityStacjonarnej = - Masa * e ^ 4 / ( 8 * epsZero ^ 2 * h ^ 2 * NumerOrbity ^ 2 )
+DlugoscFaliDeBroigla  =  h / Ped
