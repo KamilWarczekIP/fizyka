@@ -8,11 +8,85 @@ G = 6.674 * 10 ^ (-11) (*stala grawitacyjna*)
 h = 6.626 * 10 ^ (-34) (* stala Plancka w [J * s] *)
 
 
-(*Ruch*)
+(*Ruch postępowy*)
 EnergiaKinetyczna = Masa * Predkosc^2 / 2
 EnergiaPotencjalna = Masa * g * Wysokosc
+Praca
+Sila
+SilaCiezkozci
+Ped
+PredkoscSrednia
+PrzyspieszenieSrednie
+Moc
+
+(*Pamiętaj: 
+Zasada zachownia energii i zasada zachownia pedu
+Zasaday dynamiki Newtona:
+1.
+2.
+Efekt żyroskopowy
+Praca = Energia
+
+Krzywe Lissajous
+*)
+(*Ruch obrotowy*)
+EnergiaKinetyczna = 
+EnergiaPotencjalna = 
+SilaOdrodkowa
+MomentBezwladnosci
 
 
+
+MomentPedu
+PredkoscKatowa
+PredkoscLiniowa
+PrzyspieszenieKatowe
+SilaCoriolisa
+PredkoscPrecesji
+
+(*Opory i tarcie*)
+SilaOporuOsrodka = (*Wzor Newtona*)
+                    (*Wzor Stoeklesa*)
+SilaWyporu
+SilaTarcia
+SilaSprezystosci
+EnergiaSprezystosci
+
+
+(*Drgania*)
+Czestotliwosc
+Okres
+CzestoscKolowa
+  (*ROWNAIE OSCYLATORA HARMONICZNEGO*)
+  CzestoscDranWlasnych
+OkresDrganWachadlaMetematycznego
+OkresDrganWachadlaFizycznego
+EnegriaCalkowitaOscylatoraHarm
+  (*ROWNAIE OSCYLATORA HARMONICZNEGO TŁUMIONEGO*)
+CzestoscDranTlumionych
+ChwilowaAmplitudaDragn
+WspolczynnikTlumienia
+  (*ROWNAIE OSCYLATORA HARMONICZNEGO TŁUMIONEGO WYMUSZONEGO*)
+AmplitudaDragnWymuszonych
+CzestoscRezonansowa
+
+
+(*Fale*)
+  (*ROWNAIE FALOWE*)
+  LiczbaFalowa
+  CzestoscKolowa
+  Okres
+  DlugoscFali
+  PredkoscFazowa
+  PredkoscGrupwa
+
+(*Optyka*)
+NatezenieSwiatlaZaPolaryzatorem = NatezenieSwiatlaPrzedPolaryzatorem * Cos[ Kat ](*PRAWO MALUSA*)
+
+(*Elekrodynamika*)
+
+(*Atomowe*)
+SilaPrzyciaganiaGrawitacyjnego = 
 
 
 Praca = energi rozciagania
@@ -22,4 +96,5 @@ k-wspolczynnik sprezystosci
 l - dlugosc
 Em - modul younga
 S - przekroj (powierzchnia)
+
 
